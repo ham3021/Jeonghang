@@ -1,4 +1,4 @@
-// ─── State ───────────────────────────────────────────────────────────────────
+﻿// ─── State ───────────────────────────────────────────────────────────────────
 const STATE = {
   page: 'home',           // home | subject-select | theme-select | q-active | q-review | blank-active | blank-review | progress | settings
   selectedBook: null,
@@ -19,7 +19,7 @@ const STATE = {
 
 // ─── Log System ──────────────────────────────────────────────────────────────
 const LOG = {
-  KEY: 'haengjeongsa_study_log',
+  KEY: 'haengjeongsa_combined_log',
 
   load() {
     try { return JSON.parse(localStorage.getItem(this.KEY) || '[]'); }
@@ -54,7 +54,7 @@ const LOG = {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `haengjeongsa_log_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `haengjeongsa_combined_log_${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
   },
@@ -807,9 +807,9 @@ function renderSettings() {
   <div class="settings-section">
     <div class="settings-label">앱 정보</div>
     <div class="settings-desc">
-      행정사 2차 합격기원 v1.0<br>
-      슬기로운 행정사 실무법 기본서 (2026년판) 기반<br>
-      행정사법 18개 · 행정심판 21개 · 비송사건절차법 24개 주제
+      행정사 2차 합격기원 v2.0 (통합판)<br>
+      📚 실무법: 행정사법 18 · 행정심판 21 · 비송사건절차법 24개 주제<br>
+      ⚖️ 민법(계약): 계약총론 13 · 각종의 계약 43개 주제
     </div>
   </div>
 </div>`;
